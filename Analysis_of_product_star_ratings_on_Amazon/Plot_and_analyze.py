@@ -95,7 +95,7 @@ def analyze(star_rating_counts, title = None, pri_1_s = 1, pri_2_s = 1, pri_3_s 
             means = means,
             upper_confint = upper_confint,
             lower_confint = lower_confint,
-            title = None
+            title = None,
             ax = None,
             show_plot = True,
             figsize = (10, 8)
