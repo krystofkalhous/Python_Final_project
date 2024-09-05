@@ -51,7 +51,7 @@ def basic_bar_plot_of_star_reviews(dict_of_star_ratings = None, title = None,   
 # In[5]:
 
 
-def analyze(no_of_i_star_reviews, title = None, pri_1_s = 1, pri_2_s = 1, pri_3_s = 1, pri_4_s = 1, pri_5_s = 1, samples = 1000, plot = False):
+def analyze(star_rating_counts, title = None, pri_1_s = 1, pri_2_s = 1, pri_3_s = 1, pri_4_s = 1, pri_5_s = 1, samples = 1000, plot = False):
     
     if not isinstance(star_rating_counts, dict):
         raise TypeError("star_rating_counts must be a dictionary")
@@ -65,7 +65,7 @@ def analyze(no_of_i_star_reviews, title = None, pri_1_s = 1, pri_2_s = 1, pri_3_
     # Combine the actual star counts and prior to form the parameters for the Dirichlet distribution
     value_dict = {}
     for i in range(1, 6):
-        value_dict[i] = int(no_of_i_star_reviews.get(i, 0)) + dirichlet_prior.get(i, 0)
+        value_dict[i] = int(star_rating_counts.get(i, 0)) + dirichlet_prior.get(i, 0)
     
     # Draw samples from the Dirichlet distribution
     samples = np.random.dirichlet([value_dict[i] for i in range(1, 6)], size = samples)
@@ -105,7 +105,7 @@ def analyze(no_of_i_star_reviews, title = None, pri_1_s = 1, pri_2_s = 1, pri_3_
     
 
 # Output
-# "Plot, if required" + stds, upper_confint, lower_confint, means, samples, data = analyze(no_of_i_star_reviews, pri_1_s = 1, pri_2_s = 1, pri_3_s = 1, pri_4_s = 1, pri_5_s = 1, samples = 1000, plot = True)
+# "Plot, if required" + stds, upper_confint, lower_confint, means, samples, data = analyze(star_rating_counts, pri_1_s = 1, pri_2_s = 1, pri_3_s = 1, pri_4_s = 1, pri_5_s = 1, samples = 1000, plot = True)
 
 
 # In[7]:
