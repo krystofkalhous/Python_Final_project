@@ -1,0 +1,14 @@
+beautifulsoup4
+googletrans==4.0.0-rc1
+langdetect
+lightgbm
+matplotlib
+nltk
+pandas
+scikit-learn
+scipy
+seaborn
+selenium
+torch
+transformers
+wordcloud
